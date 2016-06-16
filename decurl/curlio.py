@@ -5,7 +5,7 @@ from .parser import CurlParser
 def main(fname):
     sys.stdout.write(convert_from_file(fname) + '\n')
 
-def write_config(path):
+def read_config(path):
     """
     Given a path to a .curlrc file, generates and returns
     a command-line curl statement.
@@ -30,7 +30,7 @@ def write_config(path):
     
     return full_cmd
 
-def read_config(curl_str):
+def write_config(curl_str):
     parser = cp.CurlParser()
     tokens = shlex.split(curl_command)
     parsed_args = parser.parse_args(tokens)

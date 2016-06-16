@@ -6,7 +6,8 @@ init:
 
 test:
 	rm -f .coverage
-	@nosetests -sv --with-coverage ./tests/
+	# @nosetests -sv --with-coverage ./tests/
+	@nosetests -sv ./tests/
 
 # publish:
 #	python setup.py sdist bdist_wheel upload

@@ -30,6 +30,7 @@ def call(curl_command):
     base_indent = " " * 4
     data_token = ''
     post_data = parsed_args.data or parsed_args.data_binary
+    post_data_json = None
     if post_data:
         method = 'post'
         try:
@@ -37,15 +38,10 @@ def call(curl_command):
         except ValueError:
             post_data_json = None
 
-        # If we found JSON and it is a dict, pull it apart. Otherwise, just leave as a string
-        if post_data_json and isinstance(post_data_json, dict):
-            post_data = dict_to_pretty_string(post_data_json)
-        else:
-            post_data = "'{}',\n".format(post_data)
-
+        
         # JMW
         # parse the environment variables out of the string
-
+        """
         env_vars = re.findall(r'\$\{[A-Za-z]+\}', post_data)
         if len(env_vars) > 0:
             post_data_split = re.split(r'\$\{[A-Za-z]+\}', post_data)
@@ -53,10 +49,7 @@ def call(curl_command):
                 post_data_split.insert(idx+1, os.environ[ev])
 
             post_data = ''.join(post_data_split) # reassemble
-
-        data_token = '{}data={}'.format(base_indent, post_data)
-
-    
+        """
     cookie_dict = OrderedDict()
     quoted_headers = OrderedDict()
     
@@ -88,7 +81,7 @@ def call(curl_command):
         requests_call = requests.post
 
     result = requests_call(parsed_args.url,
-                data_token,
+                data=post_data_json if post_data_json else parsed_args.data,
                 headers=quoted_headers,
                 cookies=(cookie_jar if parsed_args.cookie_jar else cookie_dict),
                 allow_redirects=parsed_args.location,
