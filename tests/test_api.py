@@ -35,7 +35,7 @@ def test_post_with_form_data():
 def test_post_with_string_data():
     # uncurl.parse("""curl 'https://pypi.python.org/pypi/uncurl' --data 'this is just some data'""").should.equal()
     result = api.call("curl http://httpbin.org/post --data 'mystring'").json()
-    result['form'].should.have.key('data').which.should.equal('mystring')
+    result.should.have.key('data').which.should.equal('mystring')
 
 def test_parse_curl_with_binary_data():
     pass

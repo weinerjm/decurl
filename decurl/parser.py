@@ -4,7 +4,7 @@ class CurlParser(ArgumentParser):
     def __init__(self): 
         ArgumentParser.__init__(self)
         self.add_argument('command')
-        self.add_argument('url')
+        self.add_argument('url', nargs='?')
         self.add_argument('-d', '--data')
         self.add_argument('--data-binary', default=None) # new from uncurl
         self.add_argument('-H', '--header', action='append', default=[])
