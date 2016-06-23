@@ -1,4 +1,5 @@
 from .parser import CurlParser
+import .curlio
 from collections import OrderedDict
 import json
 from six.moves import http_cookies as Cookie
@@ -11,7 +12,7 @@ import requests
 parser = CurlParser()
 
 def call(curl_command):
-    method = "get"
+    method = 'get'
 
     tokens = shlex.split(curl_command)
     parsed_args = parser.parse_args(tokens)
@@ -23,12 +24,10 @@ def call(curl_command):
             # read from stdin
             curl_command = sys.stdin.read()
         else:
-            curl_command = curl_config.convert(parsed_args.config)
+            curl_command = curlio.read_config(parsed_args.config)
         tokens = shlex.split(curl_command)
         parsed_args = parser.parse_args(tokens)
 
-    base_indent = " " * 4
-    data_token = ''
     post_data = parsed_args.data or parsed_args.data_binary
     post_data_json = None
     if post_data:
@@ -39,9 +38,9 @@ def call(curl_command):
             post_data_json = None
 
         
-        # JMW
-        # parse the environment variables out of the string
-        """
+    # JMW
+    # parse the environment variables out of the string
+    if False:    
         env_vars = re.findall(r'\$\{[A-Za-z]+\}', post_data)
         if len(env_vars) > 0:
             post_data_split = re.split(r'\$\{[A-Za-z]+\}', post_data)
@@ -49,7 +48,7 @@ def call(curl_command):
                 post_data_split.insert(idx+1, os.environ[ev])
 
             post_data = ''.join(post_data_split) # reassemble
-        """
+        
     cookie_dict = OrderedDict()
     quoted_headers = OrderedDict()
     
@@ -69,11 +68,10 @@ def call(curl_command):
     
     proxy_dict = None # default
     if parsed_args.proxy:
-        proxy_protocol = parsed_args.proxy.split(':')[0].lower()
-        proxy_url = ':'.join(parsed_args.proxy.split(':')[1:])[2:]
+        proxy_split = parsed_args.proxy.split(':')
+        proxy_protocol = proxy_split[0].lower()
+        proxy_url = ':'.join(proxy_split[1:])[2:]
         proxy_dict = {proxy_protocol : proxy_url}
-
-    verify = parsed_args.insecure
 
     if method == 'get':
         requests_call = requests.get
