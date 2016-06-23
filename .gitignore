@@ -2,4 +2,5 @@
 *.swp
 venv/
 decurl/*.txt
-misc/
+misc/manpage.html
+misc/get_options.py

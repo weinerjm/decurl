@@ -1,0 +1,189 @@
+-#, --progress-bar
+-:, --next
+-0, --http1.0
+--http1.1
+--http2
+--http2-prior-knowledge
+--no-npn
+--no-alpn
+-1, --tlsv1
+-2, --sslv2
+-3, --sslv3
+-4, --ipv4
+-6, --ipv6
+-a, --append
+-A, --user-agent <agent string>
+--anyauth
+-b, --cookie <name=data>
+-B, --use-ascii
+--basic
+-c, --cookie-jar <file name>
+-C, --continue-at <offset>
+--ciphers <list of ciphers>
+--compressed
+--connect-timeout <seconds>
+--create-dirs
+--crlf
+--crlfile <file>
+-d, --data <data>
+-D, --dump-header <file>
+--data-ascii <data>
+--data-binary <data>
+--data-raw <data>
+--data-urlencode <data>
+--delegation LEVEL
+--digest
+--disable-eprt
+--disable-epsv
+--dns-interface <interface>
+--dns-ipv4-addr <ip-address>
+--dns-ipv6-addr <ip-address>
+--dns-servers <ip-address,ip-address>
+-e, --referer <URL>
+-E, --cert <certificate[:password]>
+--engine <name>
+--environment
+--egd-file <file>
+--expect100-timeout <seconds>
+--cert-type <type>
+--cacert <CA certificate>
+--capath <CA certificate directory>
+--pinnedpubkey <pinned public key (hashes)>
+--cert-status
+--false-start
+-f, --fail
+-F, --form <name=content>
+--ftp-account [data]
+--ftp-alternative-to-user <command>
+--ftp-create-dirs
+--ftp-method [method]
+--ftp-pasv
+--ftp-skip-pasv-ip
+--ftp-pret
+--ftp-ssl-ccc
+--ftp-ssl-ccc-mode [active/passive]
+--ftp-ssl-control
+--ftp-ssl
+--ftp-ssl-reqd
+--form-string <name=string>
+-g, --globoff
+-G, --get
+-H, --header <header>
+--hostpubmd5 <md5>
+--ignore-content-length
+-i, --include
+-I, --head
+--interface <name>
+-j, --junk-session-cookies
+-J, --remote-header-name
+-k, --insecure
+-K, --config <config file>
+--keepalive-time <seconds>
+--key <key>
+--key-type <type>
+--krb <level>
+--krb4 <level>
+-l, --list-only
+-L, --location
+--libcurl <file>
+--limit-rate <speed>
+--local-port <num>[-num]
+--location-trusted
+-m, --max-time <seconds>
+--login-options <options>
+--mail-auth <address>
+--mail-from <address>
+--max-filesize <bytes>
+--mail-rcpt <address>
+--max-redirs <num>
+--metalink
+-n, --netrc
+-N, --no-buffer
+--netrc-file
+--netrc-optional
+--negotiate
+--no-keepalive
+--no-sessionid
+--noproxy <no-proxy-list>
+--connect-to <host:port:connect-to-host:connect-to-port>
+--ntlm
+--ntlm-wb
+-o, --output <file>
+-O, --remote-name
+--oauth2-bearer
+--proxy-header <header>
+-p, --proxytunnel
+-P, --ftp-port <address>
+--pass <phrase>
+--path-as-is
+--post301
+--post302
+--post303
+--proto <protocols>
+--proto-default <protocol>
+--proto-redir <protocols>
+--proxy-anyauth
+--proxy-basic
+--proxy-digest
+--proxy-negotiate
+--proxy-ntlm
+--proxy-service-name <servicename>
+--proxy1.0 <proxyhost[:port]>
+--pubkey <key>
+-q, --disable
+-Q, --quote <command>
+-r, --range <range>
+-R, --remote-time
+--random-file <file>
+--raw
+--remote-name-all
+--resolve <host:port:address>
+--retry <num>
+--retry-delay <seconds>
+--retry-max-time <seconds>
+-s, --silent
+--sasl-ir
+--service-name <servicename>
+-S, --show-error
+--ssl
+--ssl-reqd
+--ssl-allow-beast
+--ssl-no-revoke
+--socks4 <host[:port]>
+--socks4a <host[:port]>
+--socks5-hostname <host[:port]>
+--socks5 <host[:port]>
+--socks5-gssapi-service <servicename>
+--socks5-gssapi-nec
+--stderr <file>
+-t, --telnet-option <OPT=val>
+-T, --upload-file <file>
+--tcp-nodelay
+--tcp-fastopen
+--tftp-blksize <value>
+--tftp-no-options
+--tlsauthtype <authtype>
+--tlspassword <password>
+--tlsuser <user>
+--tlsv1.0
+--tlsv1.1
+--tlsv1.2
+--tr-encoding
+--trace <file>
+--trace-ascii <file>
+--trace-time
+--unix-socket <path>
+-u, --user <user:password>
+-U, --proxy-user <user:password>
+--url <URL>
+-v, --verbose
+-w, --write-out <format>
+-x, --proxy <[protocol://][user:password@]proxyhost[:port]>
+-X, --request <command>
+--xattr
+-y, --speed-time <time>
+-Y, --speed-limit <speed>
+-z, --time-cond <date expression>|<file>
+-h, --help
+-M, --manual
+-V, --version

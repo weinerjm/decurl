@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+import os, sys, re
 
 class CurlParser(ArgumentParser):
     """ArgumentParser-based parser for curl options"""
@@ -20,3 +21,15 @@ class CurlParser(ArgumentParser):
                           const='.curlrc') # new
         self.add_argument('-O','--remote-name', action='store_true') # new
         self.add_argument('--url')
+
+def sub_env_vars(command):
+    pattern = r'\$\{[A-Za-z0-9]+\}'
+    env_vars = re.findall(pattern, command)
+    if len(env_vars) > 0:
+        command_split = re.split(pattern, command)
+        for idx, ev in enumerate(map(lambda x: x.strip('${}'), env_vars)):
+            command_split.insert(idx+1, os.environ[ev])
+
+        return ''.join(command_split) # reassemble
+    else:
+        return command
