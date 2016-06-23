@@ -6,6 +6,7 @@ def main(curl_cmd):
     curl_twice(curl_cmd)
 
 def curl_twice(curl_cmd):
+    """Run curl, create a config, and call curl again with the config."""
     print curl_cmd
     try:
         sp.check_call(shlex.split(curl_cmd))

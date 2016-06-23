@@ -7,8 +7,7 @@ def main(fname):
     sys.stdout.write(convert_from_file(fname) + '\n')
 
 def read_config(infile):
-    """
-    Given a path to a .curlrc file, generates and returns
+    """Given a path to a .curlrc file, generates and returns 
     a command-line curl statement.
     """
     full_cmd = 'curl '
@@ -34,6 +33,7 @@ def read_config(infile):
     return full_cmd
 
 def write_config(curl_str):
+    """Creates curl config file text from a curl command string."""
     parser = CurlParser()
     tokens = shlex.split(curl_str)
     parsed_args = parser.parse_args(tokens)
@@ -53,8 +53,7 @@ def write_config(curl_str):
     return result
 
 def read_config_yaml(infile):
-    """
-    Given a path to a configuration YAML file, generates and returns
+    """Given a path to a .curlrc file, generates and returns 
     a command-line curl statement.
     """
     args_dict = yaml.load(infile.read())
@@ -69,10 +68,7 @@ def read_config_yaml(infile):
     return full_cmd
 
 def write_config_yaml(curl_str):
-    """
-    Given a command-line curl statement, generates a YAML file
-    containing a list of all the options and their values.
-    """
+    """Creates YAML curl config file text from a curl command string."""
     parser = CurlParser()
     tokens = shlex.split(curl_str)
     parsed_args = parser.parse_args(tokens)

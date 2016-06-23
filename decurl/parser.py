@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 
 class CurlParser(ArgumentParser):
+    """ArgumentParser-based parser for curl options"""
     def __init__(self): 
         ArgumentParser.__init__(self)
         self.add_argument('command')

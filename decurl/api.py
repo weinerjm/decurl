@@ -12,6 +12,14 @@ import requests
 parser = CurlParser()
 
 def call(curl_command):
+    """Makes a call with the requests module based on a command-line curl statement.
+
+    Arguments:
+    curl_command -- a string containing the curl command
+    
+    Returns:
+    result -- a requests response
+    """
     method = 'get'
 
     tokens = shlex.split(curl_command)
